@@ -1,3 +1,91 @@
+:root {
+    --white-text-clr: #FFFFFF;
+    --black-text-clr: #000000;
+    --meal-border-clr: #D2D2D2;
+    --meal-ingrediences-clr: #8B8B8B;
+    --btn-clr: #3C3C3C;
+    --btn-border-clr: #DEDEDE;
+}
+
 body {
     margin: 0;
+    padding: 0;
+    font-family: 'Smythe', cursive;
+    font-size: 1em;
+    color: var(--black-text-clr);
 } 
+
+/* Typography */
+
+h1 {
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.4em;
+}
+
+.meal-img {
+    font-size: 4.92em;
+}
+
+.meal-title {
+    font-size: 1.75em;
+}
+
+.meal-price {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.add-btn {
+    font-size: 2em;
+}
+
+/* Layout */
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 37.5em;
+    /* border: 1px solid red; */
+}
+
+header {
+    margin: 0;
+}
+
+.meal {
+    max-width: 31.5em;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid var(--btn-border-clr);
+    gap: 2em;
+}
+
+.meal-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.meal-title, 
+.meal-ingrediences, 
+.meal-price {
+    margin: 0;
+}
+
+.meal-ingrediences {
+    color: var(--meal-ingrediences-clr);
+}
+
+.add-btn {
+    cursor: pointer;
+    border: 1px solid var(--btn-border-clr);
+    border-radius: 50%;
+    color: var(--btn-clr);
+    background-color: var(--white-text-clr);
+    margin-left: auto;
+}
