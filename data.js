@@ -19,5 +19,12 @@ export const menuArray = [
         price: 12,
         emoji: "🍺",
         id: 2
+    },
+        {
+        name: "Lemonade",
+        ingredients: ["water, sugar, lemon"],
+        price: 8,
+        emoji: "🥤",
+        id: 3
     }
 ]
