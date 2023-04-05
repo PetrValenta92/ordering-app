@@ -13,7 +13,7 @@ body {
     font-family: 'Smythe', cursive;
     font-size: 1em;
     color: var(--black-text-clr);
-} 
+}
 
 /* Typography */
 
@@ -59,7 +59,11 @@ header img {
     justify-content: left;
     align-items: center;
     border-bottom: 1px solid var(--btn-border-clr);
-    gap: 2em;
+    gap: 3em;
+}
+
+.meal-img {
+    width: 4.375rem;
 }
 
 .meal-details {
@@ -69,8 +73,8 @@ header img {
     justify-content: center;
 }
 
-.meal-title, 
-.meal-ingrediences, 
+.meal-title,
+.meal-ingrediences,
 .meal-price {
     margin: 0 0 0.5rem 0;
 }
