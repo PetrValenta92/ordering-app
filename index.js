@@ -1,5 +1,7 @@
 import { menuArray } from './data.js';
 
+
+
 function getFeedHtml() {
      let feedHtml = '';
 
@@ -12,7 +14,10 @@ function getFeedHtml() {
                     <p class="meal-ingrediences">${meal.ingredients}</p>
                     <p class="meal-price">${meal.price}$</p>
                 </div>
-                <button class="add-btn">+</button>
+                <div class="meal-buttons">
+                    <button id="add-btn" class="meal-btn">+</button>
+                    <button id="deduct-btn" class="meal-btn" disabled>-</button>
+                </div>
         </div>`
      })
 
@@ -24,5 +29,4 @@ function render(){
 }
 
 render(); 
-
 
