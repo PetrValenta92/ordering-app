@@ -22,17 +22,43 @@
   <body>
     <header>
       <div class="container">
-        <img
-          src="./images/header.jpg"
-          alt="Photo of hamburger with a sign 'Jimmy's Diner The best burgers and pizzas in town'"
-        />
+        <h1>Jimmy's Dinner</h1>
+        <p>The best burgers and pizzas in town</p>
       </div>
     </header>
 
     <main>
-      <div id="feed" class="feed">
-        <!-- Meal offer is here... -->
+      <section id="feed" class="feed">
+        <!-- Meal offer is here -->
+      </section>
+
+      <div id="checkout" class="checkout container">
+        <h2 class="checkout-headline">Your order</h2>
+        <div class="checkout-order">
+          <div class="checkout-meal">
+            <p class="meal-title">Pizza</p>
+            <button class="remove-meal-btn">remove</button>
+            <div>
+              <p class="meal-count">1x</p>
+              <p class="meal-price">$14</p>
+            </div>
+          </div>
+          <div class="checkout-meal">
+            <p class="meal-title">Pizza</p>
+            <button class="remove-meal-btn">remove</button>
+            <div>
+              <p class="meal-count">1x</p>
+              <p class="meal-price">$14</p>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-summary">
+          <p class="checkout-price-text">Total price:</p>
+          <p class="checkout-price">$0</p>
+        </div>
+        <button class="purchase-btn">Complete order</button>
       </div>
+
     </main>
     <script src="index.js" type="module"></script>
   </body>
