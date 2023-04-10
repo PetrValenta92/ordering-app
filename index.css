@@ -83,6 +83,12 @@ button {
   max-width: 31.5em;
 }
 
+.checkout {
+  display: none;
+  /*flex when displayed */
+  flex-direction: column;
+}
+
 .meal {
   height: 5.5em;
   padding-bottom: 3.25em;
