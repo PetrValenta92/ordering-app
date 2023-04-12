@@ -1,6 +1,6 @@
 import { menuArray } from './data.js';
 
-let orderMealArray = [];
+let orderArray = [];
 let totalPrice = 0;
 
 document.getElementById('menu').addEventListener('click', function(e){
@@ -11,69 +11,80 @@ document.getElementById('menu').addEventListener('click', function(e){
             showCheckout(); 
             document.getElementById(`decrement-btn-${meal.id}`).disabled = false;
 
-            if (!orderMealArray.includes(meal)){
-                orderMealArray.push(meal);
-                addOneToMealQuantity(meal);
+            if (orderArray.includes(meal)){
+                meal.quantity++;
             } else {
-                addOneToMealQuantity(meal);
-            }
+                orderArray.push(meal);
+                meal.quantity++;
+            };
 
-            renderOrderMeal();
+            renderOrder();
             totalPrice += meal.price;
             renderSummary();
-        }
+        };
         
         if (e.target.id === `decrement-btn-${meal.id}`) {
 
-        }
+            meal.quantity--;
+            
+            if (meal.quantity === 0) {
+                removeMealFromArray(meal);
+                totalPrice -= meal.price;
+                document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
+
+                if (orderArray.length === 0) {
+                    hideCheckout();
+                } else {
+                    renderOrder();
+                };
+
+            } else {
+                renderOrder();
+                totalPrice -= meal.price;
+            };
+            
+            renderSummary();
+        };
     });      
 });
 
-function getMenuHtml() {
-     let menuHtml = '';
+document.getElementById('checkout-order').addEventListener('click', function(e) {
 
-     menuArray.forEach(function(meal){
+    menuArray.forEach(function(meal) {
+        if (e.target.id === `remove-btn-${meal.id}`) {
 
-        menuHtml += `
-        <div class="container meal">
-            <p class="meal-img">${meal.emoji}</p>
-                <div class="meal-details">
-                    <h3 class="meal-title">${meal.name}</h3>
-                    <p class="meal-ingrediences">${meal.ingredients}</p>
-                    <p class="meal-price">${meal.price}$</p>
-                </div>
-                <div class="meal-buttons">
-                    <button id=increment-btn-${meal.id} class="meal-btn">+</button>
-                    <button id=decrement-btn-${meal.id} class="meal-btn" disabled>-</button>
-                </div>
-        </div>`;
-     })
+            removeMealFromArray(meal);
+            totalPrice -= meal.price*meal.quantity;
+            meal.quantity = 0;
+            document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
 
-     return menuHtml;
-};
+            if (orderArray.length === 0) {
+                hideCheckout();
+            } else {
+                renderOrder();
+                renderSummary();
+            };            
+        };
+    });
+});
 
-function renderMenu(){
-    document.getElementById('menu').innerHTML = getMenuHtml();
-};
 
 function showCheckout(){
     document.getElementById('checkout').style.display = 'flex';
-    
 };
 
 function hideCheckout(){
     document.getElementById('checkout').style.display = 'none';
 };
 
+function getOrderHtml() { 
+    let orderHtml = '';
+    orderArray.forEach(function(meal){
 
-function getOrderMealHtml() { 
-    let orderMealHtml = '';
-    orderMealArray.forEach(function(meal){
-
-            orderMealHtml += `
+            orderHtml += `
                 <div id="meal-${meal.id}" class="checkout-meal">
                     <p class="meal-title">${meal.name}</p>
-                    <button id="remove-meal-btn" class="remove-meal-btn">remove</button>
+                    <button id="remove-btn-${meal.id}" class="remove-meal-btn">remove</button>
                     <div>
                         <p class="meal-count">${meal.quantity}x</p>
                         <p class="meal-price">$${meal.price*meal.quantity}</p>
@@ -81,30 +92,57 @@ function getOrderMealHtml() {
                 </div>`;
     })
 
-    return orderMealHtml;
+    return orderHtml;
 };
 
-function renderOrderMeal() {
-    document.getElementById('checkout-order').innerHTML = getOrderMealHtml();
-}
+function renderOrder() {
+    document.getElementById('checkout-order').innerHTML = getOrderHtml();
+};
+
+function removeMealFromArray(removedMeal) {
+    const i = orderArray.indexOf(removedMeal);
+    orderArray.splice(i, 1);
+};
 
 function getSummaryHtml() {
     let checkoutHtml = '';
-
     checkoutHtml = `
         <p class="checkout-price-text">Total price:</p>
         <p class="checkout-price">${totalPrice}$</p>
     `;
 
     return checkoutHtml;
-}
+};
 
 function renderSummary() {
     document.getElementById('checkout-summary').innerHTML = getSummaryHtml();
 };
 
-function addOneToMealQuantity(meal) {
-    meal.quantity++;
-} 
+function getMenuHtml() {
+    let menuHtml = '';
+
+    menuArray.forEach(function(meal){
+
+       menuHtml += `
+       <div class="container meal">
+           <p class="meal-img">${meal.emoji}</p>
+               <div class="meal-details">
+                   <h3 class="meal-title">${meal.name}</h3>
+                   <p class="meal-ingrediences">${meal.ingredients}</p>
+                   <p class="meal-price">${meal.price}$</p>
+               </div>
+               <div class="meal-buttons">
+                   <button id=increment-btn-${meal.id} class="meal-btn">+</button>
+                   <button id=decrement-btn-${meal.id} class="meal-btn" disabled>-</button>
+               </div>
+       </div>`;
+    })
+
+    return menuHtml;
+};
+
+function renderMenu(){
+   document.getElementById('menu').innerHTML = getMenuHtml();
+};
 
 renderMenu();
