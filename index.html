@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="index.css" />
     <title>Restaurant Ordering App</title>
   </head>
+
   <body>
     <header>
       <div class="container">
@@ -32,7 +33,7 @@
         <!-- Meal offer is here -->
       </section>
 
-      <section id="checkout" class="checkout container"> 
+      <section id="checkout" class="checkout container">
         <h2 class="checkout-headline">Your order</h2>
         <div id="checkout-order" class="checkout-order">
           <!-- Selected meal is here -->
@@ -40,10 +41,27 @@
         <div id="checkout-summary" class="checkout-summary">
           <!-- Order price is here -->
         </div>
-        <button class="purchase-btn">Complete order</button>
+        <button id="complete-btn" class="purchase-btn">Complete order</button>
       </section>
-
     </main>
+
+    <div id="modal" class="modal">
+      <h2>Enter card details</h2>
+      <form class="modal-inputs">
+        <input type="text" placeholder="Enter your name" required />
+        <input
+          type="tel"
+          inputmode="numeric"
+          autocomplete="cc-number"
+          maxlength="19"
+          placeholder="Enter your card number"
+          required
+        />
+        <input type="number" maxlength="3" placeholder="Enter CVV" required />
+      </form>
+      <button class="purchase-btn">Pay</button>
+    </div>
+
     <script src="index.js" type="module"></script>
   </body>
 </html>
