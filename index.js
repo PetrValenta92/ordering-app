@@ -68,6 +68,10 @@ document.getElementById('checkout-order').addEventListener('click', function(e) 
     });
 });
 
+document.getElementById('complete-btn').addEventListener('click', function() {
+    document.getElementById('modal').style.display = 'inline';
+});
+
 
 function showCheckout(){
     document.getElementById('checkout').style.display = 'flex';
