@@ -41,15 +41,23 @@
         <div id="checkout-summary" class="checkout-summary">
           <!-- Order price is here -->
         </div>
-        <button id="complete-btn" class="purchase-btn">Complete order</button>
+        <button id="complete-btn" class="complete-btn purchase-btn rounded">
+          Complete order
+        </button>
       </section>
     </main>
 
-    <div id="modal" class="modal">
+    <div id="modal" class="modal rounded">
       <h2>Enter card details</h2>
       <form class="modal-inputs">
-        <input type="text" placeholder="Enter your name" required />
         <input
+          class="rounded"
+          type="text"
+          placeholder="Enter your name"
+          required
+        />
+        <input
+          class="rounded"
           type="tel"
           inputmode="numeric"
           autocomplete="cc-number"
@@ -57,9 +65,15 @@
           placeholder="Enter your card number"
           required
         />
-        <input type="number" maxlength="3" placeholder="Enter CVV" required />
+        <input
+          class="rounded"
+          type="number"
+          maxlength="3"
+          placeholder="Enter CVV"
+          required
+        />
       </form>
-      <button class="purchase-btn">Pay</button>
+      <button class="pay-btn purchase-btn rounded">Pay</button>
     </div>
 
     <script src="index.js" type="module"></script>
