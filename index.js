@@ -1,7 +1,13 @@
 import { menuArray } from './data.js';
 
+// Variables
+
+const checkout = document.getElementById('checkout');
+const cardOwnerName = document.getElementById('name-input');
 let orderArray = [];
 let totalPrice = 0;
+
+// Events
 
 document.getElementById('menu').addEventListener('click', function(e){
 
@@ -70,15 +76,30 @@ document.getElementById('checkout-order').addEventListener('click', function(e) 
 
 document.getElementById('complete-btn').addEventListener('click', function() {
     document.getElementById('modal').style.display = 'inline';
+
+    menuArray.forEach(function(meal) {
+        document.getElementById(`increment-btn-${meal.id}`).disabled = true;
+        document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
+    });
 });
 
+document.getElementById('pay-btn').addEventListener('click', function() {
+    document.getElementById('modal').style.display = 'none';
+
+    orderArray = [];
+    totalPrice = 0;
+
+    renderThankYou(cardOwnerName.value);
+})
+
+// Functions
 
 function showCheckout(){
-    document.getElementById('checkout').style.display = 'flex';
+    checkout.style.display = 'flex';
 };
 
 function hideCheckout(){
-    document.getElementById('checkout').style.display = 'none';
+    checkout.style.display = 'none';
 };
 
 function getOrderHtml() { 
@@ -91,7 +112,7 @@ function getOrderHtml() {
                     <button id="remove-btn-${meal.id}" class="remove-meal-btn">remove</button>
                     <div>
                         <p class="meal-count">${meal.quantity}x</p>
-                        <p class="meal-price">$${meal.price*meal.quantity}</p>
+                        <p class="meal-price">${meal.price*meal.quantity}$</p>
                     </div>
                 </div>`;
     })
@@ -120,6 +141,20 @@ function getSummaryHtml() {
 
 function renderSummary() {
     document.getElementById('checkout-summary').innerHTML = getSummaryHtml();
+};
+
+function getThankYouHtml(name) {
+    let thankYouHtml = '';
+    thankYouHtml = `
+    <div class="container message">
+        <p class="message-text">Thanks, ${name}! Your order is on its way!</p>
+    </div>`;
+
+    return thankYouHtml;
+}
+
+function renderThankYou(name) {
+    checkout.innerHTML = getThankYouHtml(name);
 };
 
 function getMenuHtml() {
