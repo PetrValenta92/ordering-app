@@ -4,12 +4,13 @@
   --black-text-clr: 0, 0, 0;
   --meal-border-clr: 210, 210, 210;
   --meal-ingrediences-clr: 139, 139, 139;
-  --btn-clr: 60, 60, 60;
-  --btn-border-clr: 222, 222, 222;
+  --meal-btn-clr: 60, 60, 60;
+  --meal-btn-border-clr: 222, 222, 222;
   --remove-btn-clr: 187, 187, 187;
   --checkout-divider-clr: 57, 51, 51;
   --green-btn-clr: 22, 219, 153;
   --input-clr: 117, 117, 117;
+  --message-bg-clr: 236, 253, 245;
 }
 
 /* Set up the body */
@@ -77,6 +78,10 @@ h1 {
   font-weight: bold;
 }
 
+.message-text {
+  font-size: 2em;
+}
+
 /* Layout */
 
 .container {
@@ -115,7 +120,7 @@ button {
   display: flex;
   justify-content: left;
   align-items: center;
-  border-bottom: 1px solid var(--btn-border-clr);
+  border-bottom: 1px solid rgba(var(--meal-btn-border-clr));
   gap: 3em;
 }
 
@@ -196,6 +201,13 @@ button {
   line-height: 1.5;
 }
 
+.message {
+  padding: 1.25em 0;
+  width: 100%;
+  background-color: rgba(var(--message-bg-clr));
+  line-height: 0.5;
+}
+
 /* Modal */
 
 .modal {
@@ -208,7 +220,7 @@ button {
   margin: auto;
   width: 32.75em;
   height: 33.875em;
-  box-shadow: 0 0 6px 2px rgba(var(--meal-border-clr));
+  box-shadow: 0 0 100rem 4rem rgba(var(--meal-btn-border-clr));
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   background-color: rgba(var(--white-text-clr));
@@ -230,13 +242,13 @@ button {
 /* Modal input */
 
 .modal input {
-  padding: .875em;
+  padding: 0.875em;
   line-height: 1.55;
   border: 2px solid rgba(var(--input-clr));
 }
 
 ::placeholder {
-  color: rgba(var(--input-clr), .7);
+  color: rgba(var(--input-clr), 0.7);
 }
 
 /* Modal button */
@@ -252,9 +264,9 @@ button {
 
 .meal-btn {
   margin: 0 0 0 0.5em;
-  border: 1px solid rgba(var(--btn-border-clr));
+  border: 1px solid rgba(var(--meal-btn-border-clr));
   border-radius: 50%;
-  color: rgba(var(--btn-clr));
+  color: rgba(var(--meal-btn-clr));
   background-color: rgba(var(--white-text-clr));
   width: 3.125rem;
   height: 3.125rem;
@@ -268,7 +280,7 @@ button {
 }
 
 .meal-btn:disabled {
-  color: rgba(var(--btn-clr), .3);
+  color: rgba(var(--meal-btn-clr), 0.3);
 }
 
 .purchase-btn {
@@ -280,7 +292,11 @@ button {
 .purchase-btn:focus,
 .purchase-btn:hover,
 .purchase-btn:active {
-  background-color: rgba(var(--green-btn-clr), .7);
+  background-color: rgba(var(--green-btn-clr), 0.7);
+}
+
+.purchase-btn:disabled {
+  background-color: rgba(var(--green-btn-clr), 0.3);
 }
 
 .rounded {
