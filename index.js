@@ -3,7 +3,6 @@ import { menuArray } from './data.js';
 // Variables
 
 const checkout = document.getElementById('checkout');
-const cardOwnerName = document.getElementById('name-input');
 let orderArray = [];
 let totalPrice = 0;
 
@@ -83,14 +82,17 @@ document.getElementById('complete-btn').addEventListener('click', function() {
     });
 });
 
-document.getElementById('pay-btn').addEventListener('click', function() {
+document.getElementById('payment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
     document.getElementById('modal').style.display = 'none';
 
     orderArray = [];
     totalPrice = 0;
 
-    renderThankYou(cardOwnerName.value);
-})
+    const paymentFormData = new FormData(document.getElementById('payment-form'))
+    
+    renderThankYou(paymentFormData.get('cardName'));
+});
 
 // Functions
 
