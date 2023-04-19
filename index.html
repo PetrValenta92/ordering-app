@@ -22,9 +22,9 @@
 
   <body>
     <header>
-      <div class="container">
-        <h1>Jimmy's Dinner</h1>
-        <p>The best burgers and pizzas in town</p>
+      <div class="container dinner">
+        <h1 class="dinner-title">Jimmy's Dinner</h1>
+        <p class="dinner-sub-title">The best burgers and pizzas in town</p>
       </div>
     </header>
 
@@ -49,32 +49,38 @@
 
     <div id="modal" class="modal rounded">
       <h2>Enter card details</h2>
-      <form class="modal-inputs">
+      <form id="payment-form" class="modal-inputs">
         <input
           id="name-input"
           class="rounded"
           type="text"
+          name="cardName"
+          pattern="[a-zA-Z][a-zA-Z\s]+"
           placeholder="Enter your name"
           required
         />
         <input
           class="rounded"
           type="tel"
-          inputmode="numeric"
-          autocomplete="cc-number"
+          name="cardNumber"
+          pattern="\d*"
           maxlength="19"
           placeholder="Enter your card number"
           required
         />
         <input
           class="rounded"
-          type="number"
+          type="tel"
+          name="cardVerification"
+          pattern="\d*"
           maxlength="3"
           placeholder="Enter CVV"
           required
         />
+        <button type="submit" id="pay-btn" class="pay-btn purchase-btn rounded">
+          Pay
+        </button>
       </form>
-      <button id="pay-btn" class="pay-btn purchase-btn rounded" >Pay</button>
     </div>
 
     <script src="index.js" type="module"></script>
