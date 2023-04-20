@@ -145,6 +145,51 @@ function renderSummary() {
     document.getElementById('checkout-summary').innerHTML = getSummaryHtml();
 };
 
+function getModalHtml() {
+    let modalHtml = '';
+    modalHtml = `
+        <h2>Enter card details</h2>
+        <form id="payment-form" class="modal-inputs">
+        <input
+            id="name-input"
+            class="rounded"
+            type="text"
+            name="cardName"
+            pattern="[a-zA-Z][a-zA-Z\s]+"
+            placeholder="Enter your name"
+            required
+        />
+        <input
+            class="rounded"
+            type="tel"
+            name="cardNumber"
+            pattern="\d*"
+            maxlength="19"
+            placeholder="Enter your card number"
+            required
+        />
+        <input
+            class="rounded"
+            type="tel"
+            name="cardVerification"
+            pattern="\d*"
+            maxlength="3"
+            placeholder="Enter CVV"
+            required
+        />
+        <button type="submit" id="pay-btn" class="pay-btn purchase-btn rounded">
+            Pay
+        </button>
+        </form>
+    `;
+
+    return modalHtml;
+}
+
+function renderModal() {
+    document.getElementById('modal').innerHTML = getModalHtml();
+}
+
 function getThankYouHtml(name) {
     let thankYouHtml = '';
     thankYouHtml = `
