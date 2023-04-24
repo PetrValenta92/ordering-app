@@ -85,6 +85,12 @@ document.getElementById('complete-btn').addEventListener('click', function() {
         document.getElementById(`increment-btn-${meal.id}`).disabled = true;
         document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
     });
+
+    orderArray.forEach(function(meal) {
+        document.getElementById(`remove-btn-${meal.id}`).disabled = true;
+    });
+
+    document.getElementById('complete-btn').disabled = true;
 });
 
 document.getElementById('payment-form').addEventListener('submit', function(e) {
