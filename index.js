@@ -186,9 +186,9 @@ function getMenuHtml() {
                    <p class="meal-price">${meal.price}$</p>
                </div>
                <div class="meal-buttons">
-                   <button id=increment-btn-${meal.id} class="meal-btn">+</button>
-                   <button id=decrement-btn-${meal.id} class="meal-btn">-</button>
-                   <p class="meal-quantity">${meal.quantity}x</p>
+                    <button id=decrement-btn-${meal.id} class="meal-btn">-</button>
+                    <p class="meal-quantity">${meal.quantity}</p>
+                    <button id=increment-btn-${meal.id} class="meal-btn">+</button>                  
                </div>
        </div>`;
     })
