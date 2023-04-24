@@ -58,7 +58,7 @@ Payment Form
 
 ![Payment Form](./images/screenshots/Screenshot_paymentForm.png)
 
-Payment Form
+Thank you message
 
 ![Payment Form](./images/screenshots/Screenshot_comfirmation.png)
 
