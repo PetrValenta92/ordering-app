@@ -26,6 +26,8 @@ document.getElementById('menu').addEventListener('click', function(e){
             renderOrder();
             totalPrice += meal.price;
             renderSummary();
+
+            renderMenu();
         };
         
         if (e.target.id === `decrement-btn-${meal.id}`) {
@@ -49,6 +51,7 @@ document.getElementById('menu').addEventListener('click', function(e){
             };
             
             renderSummary();
+            renderMenu();
         };
     });      
 });
@@ -68,7 +71,9 @@ document.getElementById('checkout-order').addEventListener('click', function(e) 
             } else {
                 renderOrder();
                 renderSummary();
-            };            
+            };
+            
+            renderMenu();
         };
     });
 });
@@ -159,6 +164,14 @@ function renderThankYou(name) {
     checkout.innerHTML = getThankYouHtml(name);
 };
 
+function disableBtn() {
+    menuArray.forEach(function(meal){
+        if(meal.quantity === 0) {
+            document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
+        }        
+    });
+};
+
 function getMenuHtml() {
     let menuHtml = '';
 
@@ -174,7 +187,8 @@ function getMenuHtml() {
                </div>
                <div class="meal-buttons">
                    <button id=increment-btn-${meal.id} class="meal-btn">+</button>
-                   <button id=decrement-btn-${meal.id} class="meal-btn" disabled>-</button>
+                   <button id=decrement-btn-${meal.id} class="meal-btn">-</button>
+                   <p class="meal-quantity">${meal.quantity}x</p>
                </div>
        </div>`;
     })
@@ -184,6 +198,7 @@ function getMenuHtml() {
 
 function renderMenu(){
    document.getElementById('menu').innerHTML = getMenuHtml();
+   disableBtn();
 };
 
 renderMenu();
