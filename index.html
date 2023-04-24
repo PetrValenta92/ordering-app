@@ -50,8 +50,9 @@
     <div id="modal" class="modal rounded">
       <h2>Enter card details</h2>
       <form id="payment-form" class="modal-inputs">
+        <label for="cardName">Card name</label>
         <input
-          id="name-input"
+          id="cardName"
           class="rounded"
           type="text"
           name="cardName"
@@ -59,7 +60,9 @@
           placeholder="Enter your name"
           required
         />
+        <label for="cardNumber">Card number</label>
         <input
+          id="cardNumber"
           class="rounded"
           type="tel"
           name="cardNumber"
@@ -68,7 +71,9 @@
           placeholder="Enter your card number"
           required
         />
+        <label for="cardVerification">CVV</label>
         <input
+          id="cardVerification"
           class="rounded"
           type="tel"
           name="cardVerification"
