@@ -47,45 +47,49 @@
       </section>
     </main>
 
-    <div id="modal" class="modal rounded">
-      <h2>Enter card details</h2>
-      <form id="payment-form" class="modal-inputs">
-        <label for="cardName">Card name</label>
-        <input
-          id="cardName"
-          class="rounded"
-          type="text"
-          name="cardName"
-          pattern="[a-zA-Z][a-zA-Z\s]+"
-          placeholder="Enter your name"
-          required
-        />
-        <label for="cardNumber">Card number</label>
-        <input
-          id="cardNumber"
-          class="rounded"
-          type="tel"
-          name="cardNumber"
-          pattern="\d*"
-          maxlength="19"
-          placeholder="Enter your card number"
-          required
-        />
-        <label for="cardVerification">CVV</label>
-        <input
-          id="cardVerification"
-          class="rounded"
-          type="tel"
-          name="cardVerification"
-          pattern="\d*"
-          maxlength="3"
-          placeholder="Enter CVV"
-          required
-        />
-        <button type="submit" id="pay-btn" class="pay-btn purchase-btn rounded">
-          Pay
-        </button>
-      </form>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content rounded">
+        <h2>Enter card details</h2>
+        <form id="payment-form" class="modal-inputs">
+          <label for="cardName">Card name</label>
+          <input
+            id="cardName"
+            class="rounded"
+            type="text"
+            name="cardName"
+            pattern="[a-zA-Z][a-zA-Z\s]+"
+            placeholder="Enter your name"
+            required
+          />
+          <label for="cardNumber">Card number</label>
+          <input
+            id="cardNumber"
+            class="rounded"
+            type="tel"
+            name="cardNumber"
+            pattern="\d*"
+            maxlength="19"
+            placeholder="Enter your card number"
+            required
+          />
+          <label for="cardVerification">CVV</label>
+          <input
+            id="cardVerification"
+            class="rounded"
+            type="tel"
+            name="cardVerification"
+            pattern="\d*"
+            maxlength="3"
+            placeholder="Enter CVV"
+            required
+          />
+          <button type="submit" id="pay-btn" class="pay-btn purchase-btn rounded">
+            Pay
+          </button>
+        </form>
+      </div>
     </div>
 
     <script src="index.js" type="module"></script>
