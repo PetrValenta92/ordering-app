@@ -170,6 +170,9 @@ button {
 
 .meal-buttons {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 
 .checkout-order {
@@ -286,7 +289,7 @@ button {
 /* Utility classes */
 
 .meal-btn {
-  margin: 0 0 0 0.5em;
+  margin: 0 0 0 0;
   border: 1px solid rgba(var(--meal-btn-border-clr));
   border-radius: 50%;
   color: rgba(var(--meal-btn-clr));
