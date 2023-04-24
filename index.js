@@ -78,7 +78,7 @@ document.getElementById('checkout-order').addEventListener('click', function(e) 
     });
 });
 
-document.getElementById('complete-btn').addEventListener('click', function() {
+document.getElementById('complete-btn').addEventListener('click', function(e) {
     document.getElementById('modal').style.display = 'inline';
 
     menuArray.forEach(function(meal) {
@@ -91,9 +91,50 @@ document.getElementById('complete-btn').addEventListener('click', function() {
     });
 
     document.getElementById('complete-btn').disabled = true;
+})
+
+document.addEventListener('click', function(e) {
+
+    if (e.target === document.getElementById('modal')) {
+        closeModal();
+        
+        document.getElementById('modal').style.display = 'none';
+
+        menuArray.forEach(function(meal) {
+            document.getElementById(`increment-btn-${meal.id}`).disabled = false;
+            document.getElementById(`decrement-btn-${meal.id}`).disabled = false;
+        });
+
+        orderArray.forEach(function(meal) {
+            document.getElementById(`remove-btn-${meal.id}`).disabled = false;
+        });
+
+        document.getElementById('complete-btn').disabled = false;
+    }
+
 });
 
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+
+        document.getElementById('modal').style.display = 'none';
+
+        menuArray.forEach(function(meal) {
+            document.getElementById(`increment-btn-${meal.id}`).disabled = false;
+            document.getElementById(`decrement-btn-${meal.id}`).disabled = false;
+        });
+
+        orderArray.forEach(function(meal) {
+            document.getElementById(`remove-btn-${meal.id}`).disabled = false;
+        });
+
+        document.getElementById('complete-btn').disabled = false;
+    }
+})
+
 document.getElementById('payment-form').addEventListener('submit', function(e) {
+
     e.preventDefault();
     document.getElementById('modal').style.display = 'none';
 
@@ -156,6 +197,10 @@ function renderSummary() {
     document.getElementById('checkout-summary').innerHTML = getSummaryHtml();
 };
 
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
 function getThankYouHtml(name) {
     let thankYouHtml = '';
     thankYouHtml = `
@@ -170,7 +215,7 @@ function renderThankYou(name) {
     checkout.innerHTML = getThankYouHtml(name);
 };
 
-function disableBtn() {
+function disableMealBtn() {
     menuArray.forEach(function(meal){
         if(meal.quantity === 0) {
             document.getElementById(`decrement-btn-${meal.id}`).disabled = true;
@@ -204,7 +249,7 @@ function getMenuHtml() {
 
 function renderMenu(){
    document.getElementById('menu').innerHTML = getMenuHtml();
-   disableBtn();
+   disableMealBtn();
 };
 
 renderMenu();
