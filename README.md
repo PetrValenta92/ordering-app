@@ -51,12 +51,15 @@ Home page - Menu (600px by default)
 ![Menu](./images/screenshots/Screenshot_home.png)
 
 Checkout
+
 ![Checkout](./images/screenshots/Screenshot_checkout.png)
 
 Payment Form
+
 ![Payment Form](./images/screenshots/Screenshot_paymentForm.png)
 
 Payment Form
+
 ![Payment Form](./images/screenshots/Screenshot_comfirmation.png)
 
 ### Links
