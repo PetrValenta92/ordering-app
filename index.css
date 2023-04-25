@@ -10,7 +10,7 @@
   --clr-meal-btn-border: 222, 222, 222;
   --clr-remove-btn: 187, 187, 187;
   --clr-checkout-divider: 57, 51, 51;
-  --clr-green-btn: 22, 219, 153;
+  --clr-purchase-btn: 22, 219, 153;
   --clr-input: 117, 117, 117;
   --clr-message-bg: 236, 253, 245;
 }
@@ -49,7 +49,7 @@ body {
 .meal-price,
 .checkout-price,
 .pay-btn,
-.modal input {
+.modal label {
   font-size: 1.25em;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .modal h2 {
-  font-size: 1.5em;
+  font-size: 1.875em;
   font-weight: bold;
 }
 
@@ -247,20 +247,22 @@ button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(var(--clr-black-text));
-  background-color: rgba(var(--clr-black-text), 0.4);
+  background-color: rgba(var(--clr-meal-btn));
+  background-color: rgba(var(--clr-meal-btn), 0.4);
 }
 
 .modal-content {
   text-align: center;
   width: 32.75em;
-  margin: 15% auto;
+  margin: 10% auto;
   background-color: rgba(var(--clr-white-text));
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .modal-content h2 {
   line-height: 1.333;
+  padding-top: 1em;
+  margin: 0;
 }
 
 .modal-inputs {
@@ -272,9 +274,6 @@ button {
 }
 
 /* Modal input */
-
-.modal label {
-}
 
 .modal input {
   padding: 0.875em;
@@ -290,7 +289,7 @@ button {
 
 .pay-btn {
   width: 100%;
-  margin: 1.875em 0;
+  margin: 1.5em 0;
   padding: 1em;
   line-height: 1.55;
 }
@@ -320,18 +319,18 @@ button {
 
 .purchase-btn {
   color: rgba(var(--clr-white-text));
-  background-color: rgba(var(--clr-green-btn));
+  background-color: rgba(var(--clr-purchase-btn));
   border: none;
 }
 
 .purchase-btn:focus,
 .purchase-btn:hover,
 .purchase-btn:active {
-  background-color: rgba(var(--clr-green-btn), 0.7);
+  background-color: rgba(var(--clr-purchase-btn), 0.7);
 }
 
 .purchase-btn:disabled {
-  background-color: rgba(var(--clr-green-btn), 0.3);
+  background-color: rgba(var(--clr-purchase-btn), 0.3);
 }
 
 .rounded {
