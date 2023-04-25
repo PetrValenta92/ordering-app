@@ -60,8 +60,11 @@
             type="text"
             name="cardName"
             pattern="[a-zA-Z][a-zA-Z\s]+"
-            placeholder="Enter your name"
+            placeholder="Enter your card name"
             required
+            title="Only letters (and spaces) are allowed!"
+            oninvalid="this.setCustomValidity('Enter your card name, please!')"
+            oninput="setCustomValidity('')"
           />
           <label for="cardNumber">Card number</label>
           <input
@@ -70,9 +73,13 @@
             type="tel"
             name="cardNumber"
             pattern="\d*"
+            minlength="16"
             maxlength="19"
             placeholder="Enter your card number"
             required
+            title="At least 16, up to 19 digits. Only digits are allowed! (no spaces)"
+            oninvalid="this.setCustomValidity('Enter your card number, please!')"
+            oninput="setCustomValidity('')"
           />
           <label for="cardVerification">CVV</label>
           <input
@@ -81,11 +88,19 @@
             type="tel"
             name="cardVerification"
             pattern="\d*"
+            minlength="3"
             maxlength="3"
             placeholder="Enter CVV"
             required
+            title="The CVV code is located on the back of your credit/debit card. Only digits are allowed!"
+            oninvalid="this.setCustomValidity('Enter your card CVV, please!')"
+            oninput="setCustomValidity('')"
           />
-          <button type="submit" id="pay-btn" class="pay-btn purchase-btn rounded">
+          <button
+            type="submit"
+            id="pay-btn"
+            class="pay-btn purchase-btn rounded"
+          >
             Pay
           </button>
         </form>
