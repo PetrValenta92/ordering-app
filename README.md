@@ -30,7 +30,9 @@ The Ordering app allows users to do the following:
 - View a menu of available food items
 - Add food items to a cart
 - Remove food items from the cart
-- Place an order and receive an confirmation message
+- Place an order
+- Fill the credit/debit card information in
+- Receive the confirmation message
 
 ### How to use the app
 
