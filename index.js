@@ -1,12 +1,14 @@
 import { menuArray } from './data.js';
 
-// Variables
+// VARIABLES
 
 const checkout = document.getElementById('checkout');
 let orderArray = [];
 let totalPrice = 0;
 
-// Events
+// EVENTS
+
+// Meal buttons
 
 document.getElementById('menu').addEventListener('click', function(e){
 
@@ -56,6 +58,8 @@ document.getElementById('menu').addEventListener('click', function(e){
     });      
 });
 
+// Remove buttons
+
 document.getElementById('checkout-order').addEventListener('click', function(e) {
 
     menuArray.forEach(function(meal) {
@@ -78,6 +82,8 @@ document.getElementById('checkout-order').addEventListener('click', function(e) 
     });
 });
 
+// Complete order button
+
 document.getElementById('complete-btn').addEventListener('click', function(e) {
     document.getElementById('modal').style.display = 'inline';
 
@@ -92,6 +98,8 @@ document.getElementById('complete-btn').addEventListener('click', function(e) {
 
     document.getElementById('complete-btn').disabled = true;
 })
+
+// Close modal
 
 document.addEventListener('click', function(e) {
 
@@ -133,6 +141,8 @@ document.addEventListener('keydown', function(e) {
     }
 })
 
+// Submit form 
+
 document.getElementById('payment-form').addEventListener('submit', function(e) {
 
     e.preventDefault();
@@ -146,7 +156,7 @@ document.getElementById('payment-form').addEventListener('submit', function(e) {
     renderThankYou(paymentFormData.get('cardName'));
 });
 
-// Functions
+// FUNCTIONS
 
 function showCheckout(){
     checkout.style.display = 'flex';
